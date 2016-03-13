@@ -1,0 +1,32 @@
+!!!
+%html
+  %head
+    %title Notes
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+    %link{rel:"shortcut icon", href:"/assets/ruby-icon.png", type:"image/png"}
+  %body
+    .hidden
+      =render "layouts/links_for_scripts"
+    #wrapper
+      =render "layouts/nav"
+      #page-wrapper
+        .container-fluid
+          .row
+            .col-lg-12
+              %h1.page-header
+                =yield(:page_header)
+                %small=yield(:sub_header)
+              -if alert
+                .alert.alert-danger
+                  %strong Alert!
+                  =alert
+              -if notice
+                .alert.alert-success
+                  %strong Success!
+                  =notice
+              %ol.breadcrumb
+                -#= render_breadcrumbs :tag => :li, separator: ""
+          .row
+            = yield
