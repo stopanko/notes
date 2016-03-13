@@ -1,0 +1,14 @@
+if($('#notes_panel #new_note').length){
+    $('#add_note').toggleClass('glyphicon-remove');
+    $('#add_note').toggleClass('glyphicon-plus');
+
+    if($('#new_note').is(':visible')){
+        $('#new_note').hide(300);
+    }else{
+        $('#new_note').show(300);
+    }
+}else{
+    $('#notes_panel').prepend('<%=j render partial: 'notes/new_note_form', object: @note, as: :note%>')
+    $('#add_note').toggleClass('glyphicon-plus');
+    $('#add_note').toggleClass('glyphicon-remove');
+}

@@ -12,8 +12,10 @@
  *
  *= require main
  *= require font-awesome.min
- *= require morris
  *= require github_markdown
+ *= require sb-admin
+ *= require morris
+ *= require devise_bootstrap_views
  *= require_tree .
  *= require_self
  */
