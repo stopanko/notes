@@ -1,9 +1,10 @@
 <%if @note.errors.present?%>
     $('#new_note #errors').html('<%=j render partial: 'notes/errors', object: @note, as: :note%>');
 <%else%>
+    $('#notes_panel').prepend('<%=j render partial: 'notes/note_item', object: @note, as: :note%>');
+    CKEDITOR.instances['note_body'].destroy();
     $('#new_note').remove();
     $('#add_note').toggleClass('glyphicon-remove');
     $('#add_note').toggleClass('glyphicon-plus');
-    CKEDITOR.instances['note_body'].destroy();
-    $('#notes_panel').prepend('<%=j render partial: 'notes/note_item', object: @note, as: :note%>');
+    $("html, body").animate({ scrollTop: "50px" });
 <%end%>
