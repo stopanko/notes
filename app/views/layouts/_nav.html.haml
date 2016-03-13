@@ -10,34 +10,43 @@
     %li.dropdown
       %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
         %i.fa.fa-user
-        -#=email_param.presence
+        = current_user.email if current_user
         %b.caret
       %ul.dropdown-menu
-        %li
-          %a{:href => "#"}
-            %i.fa.fa-fw.fa-user
-            Profile
-        %li
-          %a{:href => "#"}
-            %i.fa.fa-fw.fa-envelope
-            Inbox
-        %li
-          %a{:href => "#"}
-            %i.fa.fa-fw.fa-gear
-            Settings
+        -if current_user
+          %li
+            %a{:href => "#"}
+              %i.fa.fa-fw.fa-user
+              Profile
+          %li
+            %a{:href => "#"}
+              %i.fa.fa-fw.fa-envelope
+              Inbox
+          %li
+            = link_to edit_user_registration_path do
+              %i.fa.fa-fw.fa-gear
+              Settings
         %li.divider
         %li
-          %a{:href => "#"}
-            %i.fa.fa-fw.fa-power-off
-            Log Out
+          - if current_user
+            = link_to destroy_user_session_path, method: :delete do
+              %i.fa.fa-fw.fa-power-off
+              Log Out
+          -else
+            %a{:href => new_user_session_path}
+              %i.fa.fa-fw.fa-power-off
+              Sign In
+            %a{:href => new_user_registration_path}
+              %i.fa.fa-fw.fa-power-off
+              Sign Up
   / Sidebar Menu Items - These collapse to the responsive navigation menu on small screens
   .collapse.navbar-collapse.navbar-ex1-collapse
     %ul.nav.navbar-nav.side-nav
-      %li{class: (yield(:home_nav))}
+      %li{class: active_menu}
         =link_to root_path do
           %i.fa.fa-fw.fa-desktop
           Home
-      %li{class: (yield(:dashboard_nav))}
+      %li{class: active_menu('controller')}
         =link_to '' do
           %i.fa.fa-fw.fa-dashboard
           Dashboard
