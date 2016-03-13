@@ -1,0 +1,6 @@
+#error_explanation
+  .alert.alert-danger
+    The form contains #{pluralize(note.errors.count, "error")}.
+  %ul
+    - note.errors.full_messages.each do |msg|
+      %li= msg

@@ -1,0 +1,26 @@
+-page_titles('Notes', 'All notes')
+.col-sm-8
+  .panel.panel-primary
+    .panel-heading
+      %h3.panel-title
+        Notes
+        =link_to '', new_note_path, remote: true, class: 'glyphicon glyphicon-plus', id: 'add_note'
+    .panel-body#notes_panel
+      =render partial: 'notes/note_item', collection: @notes, as: :note
+.col-sm-4
+  .panel.panel-success
+    .panel-heading
+      %h3.panel-title
+        %i.fa.fa-clock-o.fa-fw
+        Note attachments
+    .panel-body
+      .col-lg-12
+        .ticket_history
+          .history_line
+            .well
+              attachments
+              .well.history_action_info
+                history.action_name
+                .pull-right
+                  history.created_at.strftime("%d-%m-%Y")
+          #ticket_history_element

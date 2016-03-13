@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :notes, dependent: :destroy
 
   validates :email, :login, :full_name, :name, :birthday, :phone, presence: true
   validates :login, uniqueness: true

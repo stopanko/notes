@@ -1,0 +1,8 @@
+.note_item#new_note
+  #errors
+  =form_for(note, remote: true) do |f|
+    =f.text_field :title, class: 'form-control', :data => {'error-on' => true}
+    .well
+      =f.text_area :body, class: 'form-control'
+      =f.submit class: 'btn btn-success', id: 'create_new_note'
+%hr

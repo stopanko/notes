@@ -1,0 +1,6 @@
+<%if @note.errors.present?%>
+    $('#new_note #errors').html('<%=j render partial: 'notes/errors', object: @note, as: :note%>');
+<%else%>
+    $('#new_note').remove();
+    $('#notes_panel').prepend('<%=j render partial: 'notes/note_item', object: @note, as: :note%>');
+<%end%>
