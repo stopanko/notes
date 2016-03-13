@@ -15,3 +15,15 @@
 //= require bootstrap-sprockets
 //= require ckeditor/init
 //= require_tree .
+
+$(document).ready(function(){
+    $('#notes_panel .note_item').each(function(){
+        var well = $(this).find('.well');
+        var note_body = $(this).find('.note_body');
+
+        if(well.height() < note_body.height()){
+            well.css({'box-shadow' : 'inset 0 -5px 0px #8A6D3B'})
+            //$('.well:first').css({'max-height':'100%'})
+        }
+    });
+});

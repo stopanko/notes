@@ -7,8 +7,21 @@
   text-decoration: none;
 }
 
+#notes_panel{
+  padding: 0px;
+}
+
 .note_item{
   padding: 10px 10px 10px 10px;
+  .well{
+    max-height: 100px;
+    overflow-y: hidden;
+    span.note_body{
+      display: block;
+  //    max-height: 100px;
+  //    overflow-y: hidden;
+    }
+  }
   &#new_note{
     border-top: 1px solid black;
     border-bottom: 1px solid black;
