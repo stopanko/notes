@@ -1,12 +1,8 @@
-.note_item#new_note
+.note_item#new_note{data:{note_id: note.id}}
   #errors
   =form_for(note, remote: true) do |f|
     =f.text_field :title, class: 'form-control', :data => {'error-on' => true}
     .well
-<<<<<<< HEAD
       =f.cktext_area :body, class: 'form-control', :ckeditor => {:uiColor => '#AADC6E', :toolbar => 'mini'}
-=======
-      =f.text_area :body, class: 'form-control'
->>>>>>> cd077592a63523601f07ea278d86f8177cdcd11b
       =f.submit class: 'btn btn-success', id: 'create_new_note'
-%hr
+  %hr

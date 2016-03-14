@@ -7,29 +7,39 @@
   text-decoration: none;
 }
 
-<<<<<<< HEAD
 #notes_panel{
   padding: 0px;
 }
 
 .note_item{
   padding: 10px 10px 10px 10px;
+  &.note_in_edit_now{
+    background: #419aff;
+  }
+  .show_note{
+    float: right;
+    margin-top: -45px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  .edit_note{
+    float: right;
+    cursor: pointer;
+    text-decoration: none;
+  }
   .well{
     max-height: 100px;
     overflow-y: hidden;
     span.note_body{
       display: block;
-  //    max-height: 100px;
-  //    overflow-y: hidden;
     }
   }
-=======
-.note_item{
-  padding: 10px 10px 10px 10px;
->>>>>>> cd077592a63523601f07ea278d86f8177cdcd11b
   &#new_note{
     border-top: 1px solid black;
     border-bottom: 1px solid black;
+    .well{
+      max-height: 100%;
+    }
     #note_title{
       margin-bottom: 5px;
     }

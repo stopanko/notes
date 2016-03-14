@@ -1,15 +1,10 @@
-<<<<<<< HEAD
 .note_item{data:{note_id: note.id}}
-=======
-.note_item
->>>>>>> cd077592a63523601f07ea278d86f8177cdcd11b
+  =link_to '', edit_note_path(note), remote: true, class:'edit_note glyphicon glyphicon-pencil', data:{note_id: note.id}
+  =link_to '', note_path(note), method: :delete, remote: true, class:'edit_note glyphicon glyphicon-trash', data:{confirm: 'delete?', note_id: note.id}
   %span.note_title
     =note.title
   .well
     %span.note_body
-<<<<<<< HEAD
       =note.body.html_safe
-=======
-      =note.body
->>>>>>> cd077592a63523601f07ea278d86f8177cdcd11b
-%hr
+  .show_note.closed.hidden.glyphicon.glyphicon-chevron-down{data:{note_id: note.id}}
+  %hr

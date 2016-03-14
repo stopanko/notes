@@ -18,11 +18,8 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'devise-bootstrap-views'
 gem 'will_paginate', '~> 3.0.6'
-<<<<<<< HEAD
 gem 'ckeditor'
 gem 'paperclip'
-=======
->>>>>>> cd077592a63523601f07ea278d86f8177cdcd11b
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

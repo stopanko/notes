@@ -1,0 +1,5 @@
+$('.note_item#new_note[data-note-id]').remove();
+$('.note_item').removeClass('note_in_edit_now');
+if(CKEDITOR.instances['note_body']){
+    CKEDITOR.instances['note_body'].destroy();
+}

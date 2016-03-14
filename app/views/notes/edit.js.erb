@@ -1,0 +1,14 @@
+if(CKEDITOR.instances['note_body']){
+    CKEDITOR.instances['note_body'].destroy();
+}
+$('#new_note').remove();
+
+$('#add_note').addClass('glyphicon-plus');
+$('#add_note').removeClass('glyphicon-remove');
+
+var note = $('.note_item[data-note-id=<%=@note.id%>]:not(#new_note)');
+$('.note_item').removeClass('note_in_edit_now');
+note.addClass('note_in_edit_now');
+note.before(
+  '<%=j render partial: "notes/new_note_form", object: @note, as: :note%>'
+);

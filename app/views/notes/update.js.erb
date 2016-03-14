@@ -1,0 +1,13 @@
+<%if @note.errors.present?%>
+    $('#new_note[data-note-id=<%=@note.id%>] #errors').html(
+      '<%=j render partial: 'notes/errors', object: @note, as: :note%>'
+    );
+<%else%>
+    $('#new_note[data-note-id=<%=@note.id%>]').remove();
+    $('.note_item[data-note-id=<%=@note.id%>]').replaceWith(
+      '<%=j render partial: 'notes/note_item', object: @note, as: :note%>'
+    );
+    if(CKEDITOR.instances['note_body']){
+        CKEDITOR.instances['note_body'].destroy();
+    }
+<%end%>
