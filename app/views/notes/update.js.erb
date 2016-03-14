@@ -7,6 +7,7 @@
     $('.note_item[data-note-id=<%=@note.id%>]').replaceWith(
       '<%=j render partial: 'notes/note_item', object: @note, as: :note%>'
     );
+    $.add_note_border_and_open_button($('.note_item[data-note-id=<%=@note.id%>]'));
     if(CKEDITOR.instances['note_body']){
         CKEDITOR.instances['note_body'].destroy();
     }

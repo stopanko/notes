@@ -4,7 +4,7 @@ class NotesController < ApplicationController
   before_action :get_note, only: [:edit, :update, :destroy]
 
   def index
-    @notes = current_user.notes.order(created_at: :desc).paginate(page: params[:page], per_page: 20)
+    @notes = current_user.notes.order(created_at: :desc).paginate(page: params[:page], per_page: 5)
   end
 
   def new
@@ -20,6 +20,10 @@ class NotesController < ApplicationController
       format.js
     end
   end
+
+  # def get_more_notes
+  #   @notes
+  # end
 
   def update
     @note.update(note_params)

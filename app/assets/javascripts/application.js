@@ -14,30 +14,36 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require ckeditor/init
+//= require jquery.waypoints
 //= require_tree .
 
 $(document).ready(function(){
-    //якщо замітка вилазить за розміри то вводимо бордер знизу
-    $('#notes_panel .note_item').each(function(){
-        var well = $(this).find('.well');
-        var note_body = $(this).find('.note_body');
+    $.add_note_border_and_open_button = function(element){
+        var well = element.find('.well');
+        var note_body = element.find('.note_body');
 
         if(well.height() < note_body.height()){
             well.css({'box-shadow' : 'inset 0 -5px 0px #8A6D3B'});
-            $(this).find('.show_note').removeClass('hidden');
+            element.find('.show_note').removeClass('hidden');
         }
-    });
-//    кнопка розгортання нотатку
-    $('.show_note').click(function(){
-        $(this).toggleClass('glyphicon-chevron-down');
-        $(this).toggleClass('glyphicon-chevron-up');
-        var note_id = $(this).attr('data-note-id');
-        if($(this).hasClass('closed')){
-            $(".note_item[data-note-id = "+note_id+"] .well").css({'max-height':'100%'});
-        }else{
-            $(".note_item[data-note-id = "+note_id+"] .well").css({'max-height':'100px'});
-        }
-        $(this).toggleClass('closed');
+
+        //    кнопка розгортання нотатку
+        element.find('.show_note').click(function(){
+            $(this).toggleClass('glyphicon-chevron-down');
+            $(this).toggleClass('glyphicon-chevron-up');
+            var note_id = $(this).attr('data-note-id');
+            if($(this).hasClass('closed')){
+                $(".note_item[data-note-id = "+note_id+"] .well").css({'max-height':'100%'});
+            }else{
+                $(".note_item[data-note-id = "+note_id+"] .well").css({'max-height':'100px'});
+            }
+            $(this).toggleClass('closed');
+        });
+    };
+
+    //якщо замітка вилазить за розміри то вводимо бордер знизу
+    $('#notes_panel .note_item').each(function(){
+        $.add_note_border_and_open_button($(this));
     });
 
 });
