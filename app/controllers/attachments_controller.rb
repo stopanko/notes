@@ -1,23 +1,23 @@
-class PhotosController < ApplicationController
+class AttachmentsController < ApplicationController
   before_action :get_note, only: [:create, :download, :destroy]
   before_action :get_photo, only: [:download, :destroy]
 
   def create
-    @photo = @note.photos.create(photo_params)
+    @attachment = @note.attachments.create(attachment_params)
     respond_to do |format|
       format.js
     end
   end
 
   def destroy
-    @photo.destroy
+    @attachment.destroy
     respond_to do |format|
       format.js
     end
   end
 
   def download
-    send_file @photo.image.path, :type => 'image/jpeg'
+    send_file @attachment.file.path
   end
 
   private
@@ -27,10 +27,10 @@ class PhotosController < ApplicationController
   end
 
   def get_photo
-    @photo = @note.photos.find(params[:id])
+    @attachment = @note.attachments.find(params[:id])
   end
 
-  def photo_params
-    params.require(:photo).permit(:image)
+  def attachment_params
+    params.require(:attachment).permit(:file)
   end
 end

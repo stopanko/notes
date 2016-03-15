@@ -1,5 +1,0 @@
-.video_item.clearfix{data: {video_id: video.id}}
-  .pull-left
-    =video.video_file_name
-  =link_to 'download', download_video_path(video.note.id, video.id)
-  =link_to 'Remove', note_video_path(video.note.id, video.id), method: :delete, remote: true

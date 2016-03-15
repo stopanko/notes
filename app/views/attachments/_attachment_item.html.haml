@@ -1,0 +1,8 @@
+.attachment_item.clearfix{data: {attachment_id: attachment.id}}
+  -if attachment.image?
+    =image_tag attachment.file.url(:_50_50), class: 'pull-left'
+  -else
+    .pull-left
+      =attachment.file_file_name + "(#{attachment.file_content_type})"
+  =link_to 'download', download_attachment_path(attachment.note.id, attachment.id)
+  =link_to 'Remove', note_attachment_path(attachment.note.id, attachment.id), method: :delete, remote: true

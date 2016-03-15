@@ -1,5 +1,8 @@
 $('.note_item#new_note[data-note-id]').remove();
+$('.note_item[data-note-id=<%=@note.id%>]').remove();
 $('.note_item').removeClass('note_in_edit_now');
 if(CKEDITOR.instances['note_body']){
     CKEDITOR.instances['note_body'].destroy();
 }
+
+$('#note_attachments, #add_attachments_form').html('');

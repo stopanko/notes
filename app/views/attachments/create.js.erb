@@ -1,0 +1,4 @@
+$('#attachment_file').val('');
+$('#note_attachments').append(
+  '<%=j render partial: 'attachments/attachment_item', object: @attachment, as: :attachment%>'
+);

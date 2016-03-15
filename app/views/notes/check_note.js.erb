@@ -5,10 +5,6 @@ $('#add_attachments_form').html(
   '<%=j render partial: 'note_attachments', object: @note, as: :note%>'
 );
 
-$('#photos_attachments').html(
-    '<%=j render partial: 'photos/photo_item', collection: @photos, as: :photo%>'
-);
-
-$('#videos_attachments').html(
-        '<%=j render partial: 'videos/video_item', collection: @videos, as: :video%>'
+$('#note_attachments').html(
+    '<%=j render partial: 'attachments/attachment_item', collection: @attachments, as: :attachment%>'
 );
