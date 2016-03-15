@@ -7,3 +7,7 @@
           =f.label :image
           =f.file_field :image
           =f.submit
+        =form_for [note, Video.new], :html => { :multipart => true }, method: :post, remote: true do |f|
+          =f.label :video
+          =f.file_field :video
+          =f.submit

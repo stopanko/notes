@@ -8,3 +8,7 @@ $('#add_attachments_form').html(
 $('#photos_attachments').html(
     '<%=j render partial: 'photos/photo_item', collection: @photos, as: :photo%>'
 );
+
+$('#videos_attachments').html(
+        '<%=j render partial: 'videos/video_item', collection: @videos, as: :video%>'
+);
