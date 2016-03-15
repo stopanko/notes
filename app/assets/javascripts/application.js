@@ -39,6 +39,7 @@ $(document).ready(function(){
             }
             $(this).toggleClass('closed');
         });
+
     };
 
     //якщо замітка вилазить за розміри то вводимо бордер знизу

@@ -16,6 +16,10 @@
   &.note_in_edit_now{
     background: #419aff;
   }
+  .check_note{
+    float: right;
+    text-decoration: none;
+  }
   .show_note{
     float: right;
     margin-top: -45px;
@@ -28,6 +32,9 @@
     text-decoration: none;
   }
   .well{
+    &.checked{
+      border: 3px solid #7EE09A;
+    }
     max-height: 100px;
     overflow-y: hidden;
     span.note_body{

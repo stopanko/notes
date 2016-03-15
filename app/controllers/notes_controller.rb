@@ -1,7 +1,7 @@
 class NotesController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :get_note, only: [:edit, :update, :destroy]
+  before_action :get_note, only: [:check_note, :edit, :update, :destroy]
 
   def index
     @notes = current_user.notes.order(created_at: :desc).paginate(page: params[:page], per_page: 5)
@@ -12,6 +12,11 @@ class NotesController < ApplicationController
     respond_to do |format|
       format.js
     end
+  end
+
+  def check_note
+    p 'note'
+    p @note
   end
 
   def destroy

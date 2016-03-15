@@ -4,6 +4,7 @@
   %span.note_title
     =note.title
   .well
+    =link_to '', check_note_path(note.id), remote: true, method: :post, class: 'check_note glyphicon glyphicon-ok-circle'
     %span.note_body
       =note.body.html_safe
   .show_note.closed.hidden.glyphicon.glyphicon-chevron-down{data:{note_id: note.id}}
