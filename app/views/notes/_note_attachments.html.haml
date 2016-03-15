@@ -3,7 +3,7 @@
     .well
       Attachments
       .well.history_action_info
-        =form_for [note, note.photos.new], :html => { :multipart => true }, method: :post, remote: true do |f|
+        =form_for [note, Photo.new], :html => { :multipart => true }, method: :post, remote: true do |f|
           =f.label :image
           =f.file_field :image
           =f.submit

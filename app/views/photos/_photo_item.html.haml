@@ -1,3 +1,4 @@
 .photo_item.clearfix{data: {photo_id: photo.id}}
   =image_tag photo.image.url(:_50_50), class: 'pull-left'
-  =link_to 'download', note_photo_download_path(photo.note.id, photo.id)
+  =link_to 'download', download_photo_path(photo.note.id, photo.id)
+  =link_to 'Remove', note_photo_path(photo.note.id, photo.id), method: :delete, remote: true
