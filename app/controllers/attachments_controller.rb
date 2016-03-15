@@ -1,4 +1,6 @@
 class AttachmentsController < ApplicationController
+  before_action :authenticate_user!
+
   before_action :get_note, only: [:create, :download, :destroy]
   before_action :get_photo, only: [:download, :destroy]
 
