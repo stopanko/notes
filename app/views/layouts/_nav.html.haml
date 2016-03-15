@@ -15,14 +15,6 @@
       %ul.dropdown-menu
         -if current_user
           %li
-            %a{:href => "#"}
-              %i.fa.fa-fw.fa-user
-              Profile
-          %li
-            %a{:href => "#"}
-              %i.fa.fa-fw.fa-envelope
-              Inbox
-          %li
             = link_to edit_user_registration_path do
               %i.fa.fa-fw.fa-gear
               Settings
