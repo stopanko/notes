@@ -15,8 +15,7 @@ class NotesController < ApplicationController
   end
 
   def check_note
-    p 'note'
-    p @note
+    @photos = @note.photos
   end
 
   def destroy

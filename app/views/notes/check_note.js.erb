@@ -1,2 +1,10 @@
 $('.note_item .well').removeClass('checked');
 $('.note_item[data-note-id=<%=@note.id%>] .well').addClass('checked');
+
+$('#add_attachments_form').html(
+  '<%=j render partial: 'note_attachments', object: @note, as: :note%>'
+);
+
+$('#photos_attachments').html(
+    '<%=j render partial: 'photos/photo_item', collection: @photos, as: :photo%>'
+);
